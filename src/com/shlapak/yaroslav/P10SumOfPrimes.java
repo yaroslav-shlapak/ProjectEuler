@@ -1,30 +1,25 @@
 package com.shlapak.yaroslav;
 
-import java.util.Arrays;
-
 /**
- * Created by yarl on 26.02.16.
+ * Created by yaroslav on 2/27/16.
  */
-public class P710001Prime {
+public class P10SumOfPrimes {
     public static void main(String[] args) {
-        int N = 10001;
-        int[] primes = new int[N + 1];
-        int i = 2;
-        int primeCounter = 0;
-        primes[primeCounter] = i;
+        int N = (int) 2e6;
+        long sum = 0;
 
-        while (primeCounter <= N) {
+        for(int i = 2; i < N; i++) {
             if(isPrime(i)) {
-                primes[primeCounter] = i;
-                primeCounter++;
+                sum += i;
             }
-            i++;
         }
-        System.out.println(Arrays.toString(primes));
-        System.out.println(primes[N]);
+        System.out.println(sum);
     }
 
     private static boolean isPrime(int n) {
+        if(n <= 1) {
+            return false;
+        }
         if(n <= 3) {
             return true;
         }
@@ -39,5 +34,4 @@ public class P710001Prime {
         }
         return true;
     }
-
 }
